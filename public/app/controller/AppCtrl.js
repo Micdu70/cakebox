@@ -19,8 +19,9 @@ app.controller('AppCtrl', function($scope, $http, $location, $translate, Rights,
             alertify.log("Cakebox-light " + data.version.remote + $translate.instant('NOTIFICATIONS.AVAILABLE'), "success", 10000);
     });
 
-    $scope.$on('$locationChangeSuccess',function(event, newurl, oldurl) {
-        $scope.previouspage = oldurl;
+    $scope.$on('$locationChangeSuccess',function(event, url) {
+        backurl = url.substring(0, url.lastIndexOf("/")).replace("/play/", "/browse/");
+        $scope.previouspage = backurl;
     });
 
     $scope.copyText = function(data) {

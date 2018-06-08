@@ -26,7 +26,7 @@ body {
   background-color: rgba(245, 245, 245, 0.45);
 }
 
-.back-to-top {
+.go-to-bottom, .back-to-top {
   background: none;
   margin: 10px;
   position: fixed;
@@ -37,11 +37,12 @@ body {
   z-index: 100;
   display: none;
   text-decoration: none;
-  background-color: rgba(245, 245, 245, 0.62);
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.back-to-top i {
+.go-to-bottom i, .back-to-top i {
   font-size: 60px;
+  top: 10px;
 }
 
 .breadcrumb {

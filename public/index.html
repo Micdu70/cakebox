@@ -14,7 +14,10 @@
 
 </head>
 <body ng-controller="AppCtrl">
-    <a href="#" class="back-to-top">
+    <a href="#bottom" class="go-to-bottom">
+        <i class="glyphicon glyphicon-arrow-down"></i>
+    </a>
+    <a href="#top" class="back-to-top">
         <i class="glyphicon glyphicon-arrow-up"></i>
     </a>
     <!-- Wrap all page content here -->
@@ -35,6 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbar-cakebox">
                     <ul class="nav navbar-nav">
                         <li ng-class="{'active':!currentPage || currentPage == 'browse'}"><a href="#/browse/" translate> NAVBAR.LOOK_INTO </a></li>
+                        <li><a href="../seedbox-manager" target="_blank"> Seedbox Manager </a></li>
                         <li ng-class="{'active':currentPage == 'about'}"><a href="#/about" translate> NAVBAR.ABOUT </a></li>
                     </ul>
                     <form ng-show="currentPage == 'browse' || currentPage == ''" class="navbar-form navbar-right searchbox" role="search">
@@ -88,6 +92,31 @@
     <script src="app/controller/Breadcrumbs.js"></script>
     <script src="app/filter/bytes.js"></script>
     <script src="app/directive/webplayer.js"></script>
+
+    <!-- "Go to bottom" button -->
+    <script>
+        jQuery(document).ready(function() {
+        var offset = 30;
+        var duration = 0;
+        jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() <= offset) {
+        jQuery('.go-to-bottom').fadeIn(duration);
+        } else {
+        jQuery('.go-to-bottom').fadeOut(duration);
+        }
+        });
+
+        jQuery('.go-to-bottom').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: $(document).height()}, duration);
+        return false;
+        })
+        });
+
+        $(document).ready(function(){
+        $(window).scroll();
+        });
+    </script>
 
     <!-- "Back to top" button -->
     <script>

@@ -22,14 +22,14 @@ app.directive('webplayer', ["$location",
                         if (scope.player == "html5") {
                             if (scope.autoplay == "yes") {
                                 if (scope.mimetype.indexOf("video") !== -1)
-                                    content = '<div class="video"><video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video></div>';
+                                    content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video>';
                                 else
-                                    content = '<div class="audio"><audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio></div>';
+                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio>';
                             } else {
                                 if (scope.mimetype.indexOf("video") !== -1)
-                                    content = '<div class="video"><video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video></div>';
+                                    content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video>';
                                 else
-                                    content = '<div class="audio"><audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio></div>';
+                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio>';
                             }
                         }
 

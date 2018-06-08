@@ -187,15 +187,7 @@ td {
   margin-top: 20px;
 }
 
-.video {
-  width: 100%;
-}
-
-.audio {
-  width: 100%;
-}
-
-#vlc, #divx, #html5 {
+#html5 {
   width: 100%;
   top: 0; left: 0;
   position: relative;

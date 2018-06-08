@@ -22,7 +22,7 @@ $app["player.default_type"] = "html5"; // html5 only actually...
 $app["player.auto_play"] = "yes"; // "yes" or "no"
 
 /*
-  User rights (true/false)
+  User rights
 */
 $app["rights.canPlayMedia"] = true;
 $app["rights.canDownloadFile"] = true;

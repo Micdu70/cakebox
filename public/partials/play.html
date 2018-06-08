@@ -6,14 +6,14 @@
         </div>
     </div>
 
-    <div class="video-header">
+    <div class="stream-header">
         {{ fileinfo.name }}
     </div>
 
     <div class="player">
 
         <div class="player-container">
-            <webplayer class="video-container" autoplay="{{ player.auto_play }}" player="{{ player.default_type.type }}" url="{{ fileinfo.access }}" mimetype="{{ fileinfo.mimetype }}"></webplayer>
+            <webplayer class="stream-container" autoplay="{{ player.auto_play }}" player="{{ player.default_type.type }}" url="{{ fileinfo.access }}" mimetype="{{ fileinfo.mimetype }}"></webplayer>
         </div>
 
         <div class="betaseries" ng-show="betaseries.episode || betaseries.movie">

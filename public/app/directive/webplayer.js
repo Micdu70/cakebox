@@ -9,7 +9,6 @@ app.directive('webplayer', ["$location",
                 mimetype: '@',
                 autoplay: '@'
             },
-            template: "<div class='video'></div>",
             link: function (scope, element, attrs) {
                 var $_current = element;
 
@@ -20,13 +19,17 @@ app.directive('webplayer', ["$location",
                         var $_clone = element.clone(),
                             content = '';
 
-                        if (scope.autoplay == "yes") {
-                            if (scope.player == "html5") {
-                                content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video>';
-                            }
-                        } else {
-                            if (scope.player == "html5") {
-                                content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video>';
+                        if (scope.player == "html5") {
+                            if (scope.autoplay == "yes") {
+                                if (scope.mimetype.indexOf("video") !== -1)
+                                    content = '<div class="video"><video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video></div>';
+                                else
+                                    content = '<div class="audio"><audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio></div>';
+                            } else {
+                                if (scope.mimetype.indexOf("video") !== -1)
+                                    content = '<div class="video"><video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video></div>';
+                                else
+                                    content = '<div class="audio"><audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio></div>';
                             }
                         }
 

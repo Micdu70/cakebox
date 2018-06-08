@@ -16,9 +16,8 @@ use App\Models\Utils;
  * @var Application $app Silex Application
  */
 $app->get("/api/directories",          __NAMESPACE__ . "\\get_content");
-$app->delete("/api/directories",       __NAMESPACE__ . "\\delete");
+$app->delete("/api/directories/delete",__NAMESPACE__ . "\\delete");
 $app->get("/api/directories/archive",  __NAMESPACE__ . "\\archive");
-
 
 /**
  * Retrieve directory content, directories and files
@@ -99,14 +98,14 @@ function delete(Application $app, Request $request) {
 
     $dirpath = Utils\check_path($app['cakebox.root'], $request->get('path'));
 
-    if (!isset($dirpath)) {
-        $app->abort(400, "Missing parameters");
+    if (empty($dirpath)) {
+        $app->abort(403, "Missing parameters");
     }
 
     $dir = "{$app['cakebox.root']}/{$dirpath}";
 
     if (file_exists($dir) === false) {
-        $app->abort(404, "Directory not found");
+        $app->abort(403, "Directory not found");
     }
 
     if (is_dir($dir) === false) {
@@ -131,8 +130,7 @@ function delete(Application $app, Request $request) {
     // Remove directory itself
     rmdir($dir);
 
-    $subRequest = Request::create('/api/directories', 'GET', ['path' => dirname($dirpath)]);
-    return $app->handle($subRequest, HttpKernelInterface::SUB_REQUEST);
+    return $app->json("Folder deleted");
 }
 
 /**

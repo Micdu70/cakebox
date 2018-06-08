@@ -126,7 +126,8 @@ function getCurrentDirectoryFiles(SPLFileInfo $file, Application $app) {
                 * @var SPLFileInfo $curFile
                 */
                if ($curFile->isReadable()
-                   && in_array(strtolower($curFile->getExtension()), $app['extension.video'])
+                   && (in_array(strtolower($curFile->getExtension()), $app['extension.video'])
+                   || in_array(strtolower($curFile->getExtension()), $app['extension.audio']))
                ) {
                    return true;
                }

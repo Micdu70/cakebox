@@ -1,6 +1,6 @@
 app.filter('bytes', function() {
     return function(bytes, precision) {
-        var units = ['octets', 'ko', 'Mo', 'Go', 'To', 'Po'];
+        var units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
         if (bytes == 0 || isNaN(parseFloat(bytes)) || !isFinite(bytes))
             return '0 ' + units[0];

@@ -6,6 +6,7 @@
             <span ng-if="$last">{{ breadcrumb.name }}</span>
         </li>
         <a ng-click="refreshDatas($event)" title="{{ 'BROWSE_PAGE.REFRESH' | translate }}" class="glyphicon glyphicon-refresh pull-right"></a>
+        <a target="_blank" href="./api/rss?path={{ getRSS(entry) }}" title="RSS" class="pull-right glyphicon glyphicon-bell" style="margin-right: 20px;">RSS</a>
     </ol>
 
     <div ng-show="informations" class="informations">
@@ -34,11 +35,11 @@
                     {{ entry.size | bytes }}
                 </td>
                 <td class="entry-copy">
-                    <i ng-show="entry.type == 'file'" title="{{ 'BROWSE_PAGE.COPY' | translate }}" class="glyphicon glyphicon-link" clip-copy="copyText(entry)" clip-click="copyfileinfo()"></i>
+                    <i ng-show="entry.type == 'file'" title="{{ 'BROWSE_PAGE.COPY' | translate }}" class="glyphicon glyphicon-link" clip-copy="copyText(entry)" ng-click="copyfileinfo()"></i>
                 </td>
                 <td class="entry-download">
                     <a ng-show="entry.type == 'dir' && rights.canArchiveDirectory" href="" ng-click="archiveDirectory(entry)" title="{{ 'BROWSE_PAGE.ARCHIVE' | translate }}" class="glyphicon glyphicon-compressed"></a>
-                    <a ng-show="entry.type == 'file' && rights.canDownloadFile" ng-href="{{ entry.access }}" title="{{ 'BROWSE_PAGE.DOWNLOAD' | translate }}" class="glyphicon glyphicon-download"></a>
+                    <a ng-show="entry.type == 'file' && rights.canDownloadFile" ng-href="{{ getDownload(entry) }}" title="{{ 'BROWSE_PAGE.DOWNLOAD' | translate }}" class="glyphicon glyphicon-download"></a>
                 </td>
                 <td class="entry-delete" ng-show="entry.type == 'dir' && rights.canDelete">
                     <a href="" title="{{ 'BROWSE_PAGE.DELETE_DIR' | translate }}" class="glyphicon glyphicon-remove-circle" ng-click="removeDirectory(entry)"></a>

@@ -9,8 +9,8 @@ app.factory('Directory', ['$resource', function ($resource) {
         },
         delete: {
             method: 'DELETE',
-            url: 'api/directories',
-            isArray: true
+            url: 'api/directories/delete',
+            isArray: false
         }
     };
 

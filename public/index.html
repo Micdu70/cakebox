@@ -6,17 +6,17 @@
     <title>Cakebox Light</title>
     <link href="ressources/images/cupcake.ico" rel="icon" type="image/png">
 
-    <!-- Bootstrap -->
     <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="components/alertify.js/themes/alertify.core.css" rel="stylesheet">
-    <link href="components/alertify.js/themes/alertify.bootstrap.css" rel="stylesheet">
+    <link href="components/alertifyjs/dist/css/alertify.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="ressources/css/cakebox.css" rel="stylesheet">
 
 </head>
 <body ng-controller="AppCtrl">
-
+    <a href="#" class="back-to-top">
+        <i class="glyphicon glyphicon-arrow-up"></i>
+    </a>
     <!-- Wrap all page content here -->
     <div id="wrap">
 
@@ -68,8 +68,8 @@
     <script src="components/angular-route/angular-route.min.js"></script>
     <script src="components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="components/alertify.js/lib/alertify.min.js"></script>
-    <script src="components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="components/alertifyjs/dist/js/alertify.js"></script>
+    <script src="components/clipboard/dist/clipboard.min.js"></script>
     <script src="components/ng-clip/src/ngClip.js"></script>
     <script src="components/angular-translate/angular-translate.min.js"></script>
     <script src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
@@ -88,5 +88,26 @@
     <script src="app/controller/Breadcrumbs.js"></script>
     <script src="app/filter/bytes.js"></script>
     <script src="app/directive/webplayer.js"></script>
+
+    <!-- "Back to top" button -->
+    <script>
+        jQuery(document).ready(function() {
+        var offset = 30;
+        var duration = 0;
+        jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+        jQuery('.back-to-top').fadeIn(duration);
+        } else {
+        jQuery('.back-to-top').fadeOut(duration);
+        }
+        });
+
+        jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+        })
+        });
+    </script>
 </body>
 </html>

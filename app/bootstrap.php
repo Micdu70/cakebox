@@ -15,10 +15,12 @@ if (APPLICATION_ENV != "production") {
 }
 
 $app["extension.video"]    = ["mp4", "mov", "mpg", "flv", "avi", "mkv", "wmv"];
-$app["extension.audio"]    = ["mp3", "flac", "ogg", "aac", "wma"];
+$app["extension.audio"]    = ["m4a", "mp3", "flac", "ogg", "aac", "wma"];
 $app["extension.image"]    = ["png", "gif", "jpg", "jpeg"];
 $app["extension.archive"]  = ["zip", "rar", "gz", "bz2", "7z"];
 $app["extension.subtitle"] = ["srt"];
+$app["extension.video-audio"] = ["mp4", "mov", "mpg", "flv", "avi", "mkv", "wmv",
+                                "m4a", "mp3", "flac", "ogg", "aac", "wma"];
 
 // Include specific user conf
 $user = @$_SERVER["PHP_AUTH_USER"];

@@ -11,6 +11,8 @@
 #       @Tuxity
 #       @mpgn
 #
+# Fork version:
+#       @Micdu70
 
 function usage {
     echo "Usage: ./$0 [install-full | install-cakebox | install-prerequis | update]"
@@ -79,7 +81,7 @@ function install-cakebox {
     read -p "Appuyer sur une touche pour continuer ..."
     cd $1 #répertoire d'installation cakebox passer en parametre
 
-    git clone https://github.com/Cakebox/Cakebox-light.git cakebox && cd cakebox
+    git clone https://github.com/Micdu70/cakebox.git cakebox && cd cakebox
     LASTEST=$(git describe --abbrev=0)
     git checkout tags/$LASTEST
     composer install

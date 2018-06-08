@@ -5,7 +5,9 @@
 */
 $app["cakebox.root"] = "/var/www/"; // Root directory Cakebox have to scan
 $app["cakebox.access"] = "/access/"; // Alias used in web server for direct access
-$app["cakebox.language"] = "fr"; //Language of Cakebox. Could be : fr, en
+$app["cakebox.language"] = "fr"; //Language of Cakebox. Could be : fr, en, it
+$app["cakebox.host"] = "my-domain.cakebox"; // Domain (name or IP) where Cakebox is hosted
+$app["cakebox.custom_port"] = ""; // Only if you have set a custom port (different than 80 and 443) to access Cakebox
 
 /*
   Directory settings
@@ -16,11 +18,11 @@ $app["directory.ignore"] = "//"; // Regex for files exclusion. For exemple : "/(
 /*
   Web player settings
 */
-$app["player.default_type"] = "html5"; // html5 or divx or vlc
-$app["player.auto_play"] = "false";
+$app["player.default_type"] = "html5"; // html5 only actually...
+$app["player.auto_play"] = "yes"; // "yes" or "no"
 
 /*
-  User rights
+  User rights (true/false)
 */
 $app["rights.canPlayMedia"] = true;
 $app["rights.canDownloadFile"] = true;

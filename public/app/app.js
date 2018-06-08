@@ -6,6 +6,10 @@ var app = angular.module('cakebox',  [
     'pascalprecht.translate'
 ]);
 
+app.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}]);
+
 app.config(['$routeProvider', '$translateProvider', 'ngClipProvider',
 
     function($routeProvider, $translateProvider, ngClipProvider) {
@@ -39,6 +43,6 @@ app.config(['$routeProvider', '$translateProvider', 'ngClipProvider',
         });
         $translateProvider.preferredLanguage('fr');
         $translateProvider.useSanitizeValueStrategy(null);
-        ngClipProvider.setPath("components/zeroclipboard/dist/ZeroClipboard.swf");
+        ngClipProvider.setPath("components/clipboard/dist/clipboard.min.js");
     }
 ]);

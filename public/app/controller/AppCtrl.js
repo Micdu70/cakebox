@@ -25,10 +25,11 @@ app.controller('AppCtrl', function($scope, $http, $location, $translate, Rights,
     });
 
     $scope.copyText = function(data) {
-        return $location.protocol() + "://" + $location.host() + ":" + $location.port() + data.access;
-    }
+        return $location.protocol() + "://" + $location.host() + ":" + $location.port() + data.access.replace('//', '/');
+    };
 
     $scope.copyfileinfo = function() {
-        alertify.log($translate.instant('NOTIFICATIONS.LINK_COPY') , "success", 10000);
-    }
+        //alertify.logPosition("bottom right");
+        alertify.maxLogItems(1).delay(5000).closeLogOnClick(true).success($translate.instant('NOTIFICATIONS.LINK_COPY'));
+    };
 });

@@ -13,21 +13,39 @@ body {
 .view {
   padding: 20px;
   margin-bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(245, 245, 245, 0.75);
 }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(245, 245, 245, 0.75);
 }
 
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:hover,
 .navbar .navbar-nav > .active > a:focus {
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(245, 245, 245, 0.45);
+}
+
+.back-to-top {
+  background: none;
+  margin: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  z-index: 100;
+  display: none;
+  text-decoration: none;
+  background-color: rgba(245, 245, 245, 0.62);
+}
+
+.back-to-top i {
+  font-size: 60px;
 }
 
 .breadcrumb {
-  background-color: rgba(255, 255, 255, 0.62);
+  background-color: rgba(245, 245, 245, 0.62);
 }
 
 /* Wrapper for page content to push down footer */
@@ -57,7 +75,7 @@ body {
 
 footer {
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(245, 245, 245, 0.75);
 }
 
 footer > .container {
@@ -68,11 +86,12 @@ footer > .container {
 /* Bootstrap end */
 
 .searchbox input {
-  background-color: rgba(255, 255, 255, 0.62);
+  background-color: rgba(245, 245, 245, 0.62);
 }
 
 .navbar-form .form-control {
   padding-right: 80px;
+  min-width: 300px;
 }
 
 .clear-search {
@@ -119,6 +138,7 @@ td {
 
 .entry-copy > i {
     color: #428bca;
+    cursor: pointer;
 }
 
 .entry-size {
@@ -186,7 +206,7 @@ td {
 }
 
 #header-player > .row > select.form-control {
-    width: 16%;
+    width: 180px;
 }
 
 @media screen and (min-width:992px) {

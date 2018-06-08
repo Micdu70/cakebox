@@ -122,10 +122,23 @@ app.controller('BrowseCtrl', function($window, $location, $scope, $routeParams, 
             url = "#/browse" + ($scope.currentPath ? "/" + $scope.currentPath : "") + "/" + entry.name;
         }
         else if (entry.type == "file" && $scope.rights.canPlayMedia) {
-            url = entry.access;
-            if (entry.extraType == "video")
+            url = entry.access.replace('//', '/');
+            if ((entry.extraType == "video")||(entry.extraType == "audio"))
                 url = "#/play" + ($scope.currentPath ? "/" + $scope.currentPath : "") + "/" + entry.name;
         }
+
+        return url;
+    }
+
+    $scope.getDownload = function(entry) {
+        url = entry.access.replace('//', '/');
+
+        return url;
+    }
+
+    $scope.getRSS = function(entry) {
+        url = "/" + encodeURIComponent($scope.currentPath);
+        url = url.replace('%2F', '/');
 
         return url;
     }

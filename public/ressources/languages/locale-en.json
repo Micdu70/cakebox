@@ -2,10 +2,10 @@
     "NAVBAR": {
         "ABOUT": "About",
         "LOOK_INTO": "Browse",
-        "SEARCH": "Search a file"
+        "SEARCH": "Search a file or folder"
     },
     "ABOUT_PAGE": {
-        "VERSION": "You use the version <a href='https://github.com/Cakebox/Cakebox-light/releases/tag/v{{ local }}'>{{ local }}</a> of Cakebox-light.",
+        "VERSION": "You use the following version of Cakebox-light:",
         "TITLE2": "Design and development",
         "MORE": "Cakekox is developed on our free time, feel free to contribute to the project!",
         "THANKS": "Thanking",
@@ -28,8 +28,8 @@
     },
     "PLAY_PAGE": {
         "BACK": "Back",
-        "PREV": "Previous video",
-        "NEXT": "Next video",
+        "PREV": "Previous streamable file",
+        "NEXT": "Next streamable file",
         "DOWNLOAD": "Download file",
         "BETASERIE": {
             "VIEW": "Mark the episode as seen on BetaSeries",

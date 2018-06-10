@@ -23,7 +23,7 @@ function usage {
 
 function install-prereq {
     echo "Installation des prérequis de Cakebox-light :"
-    read -p "Appuyer sur une touche pour continuer ..."
+    read -p "Appuyez sur une touche pour continuer ..."
 
     read -e -p "Quelle est votre distribution linux ? (debian = d | ubuntu = u)" DISTRIB
 
@@ -45,7 +45,6 @@ function install-prereq {
     fi
 
     echo "Installation/Mise à jour de Composer ..."
-    read -p "Appuyer sur une touche pour continuer ..."
     if hash composer 2>/dev/null; then
         /usr/local/bin/composer self-update
     else
@@ -55,7 +54,6 @@ function install-prereq {
     fi
 
     echo "Installation de NodeJS ..."
-    read -p "Appuyer sur une touche pour continuer ..."
     wget -N http://nodejs.org/dist/node-latest.tar.gz
     tar xzvf node-latest.tar.gz && cd node-v*
     ./configure
@@ -63,7 +61,6 @@ function install-prereq {
     make install
 
     echo "Installation/Mise à jour de Bower ..."
-    read -p "Appuyer sur une touche pour continuer ..."
     if hash bower 2>/dev/null; then
         bower update --allow-root
     else
@@ -78,7 +75,7 @@ function install-prereq {
 function install-cakebox {
 
     echo "Installation de Cakebox-light ..."
-    read -p "Appuyer sur une touche pour continuer ..."
+    read -p "Appuyez sur une touche pour continuer ..."
     cd $1 #répertoire d'installation cakebox passer en parametre
 
     git clone https://github.com/Micdu70/cakebox.git cakebox && cd cakebox
@@ -94,10 +91,10 @@ function install-cakebox {
 
     echo -e "----------------------- CAKEBOX-LIGHT ---------------------\n"
     echo -e "Cakebox-light est maintenant installé dans le répertoire "$1".\n"
-    echo -e "Il vous faut maintenant configurer votre serveur pour pouvoir accéder à cakebox depuis le web\n"
-    echo -e "Pour cela, rendez vous sur le wiki, rubrique : Comment configurer votre serveur web Apache 2, NGinx ou LigHttpd ?\n";
+    echo -e "Il vous faut maintenant configurer votre serveur pour pouvoir accéder à cakebox depuis le web.\n"
+    echo -e "Pour cela, rendez-vous sur le wiki, rubrique : Comment configurer votre serveur web Apache 2, NGinx ou LigHttpd ?\n";
     echo -e "Bon stream !\n"
-    read -p "Appuyer sur une touche pour terminer ..."
+    read -p "Appuyez sur une touche pour terminer ..."
 
 }
 
@@ -105,8 +102,9 @@ function install-cakebox {
 
 function update {
     echo "Mise à jour de Cakebox-light ..."
-    read -p "Appuyer sur une touche pour continuer ..."
-    read -e -p "Où ce trouve votre repertoire Cakebox ? (ex /var/www/cakebox) " REP2
+    read -p "Appuyez sur une touche pour continuer ..."
+    echo ""
+    read -e -p "Où se trouve votre répertoire d'installation de Cakebox ? (ex: /var/www/cakebox) " REP2
 
     if cd $REP2 2> /dev/null ; then
 
@@ -131,24 +129,25 @@ function update {
 
 function repertoire-install {
 
-    read -e -p "Entrez le répertoire où installer Cakebox-light (ex /var/www/) : " CAKEREP
+    read -e -p "Entrez le répertoire où s'installera Cakebox-light (ex /var/www/) : " CAKEREP
     if cd $CAKEREP 2> /dev/null ; then
-        echo -e "Début de l'installation dans le répertoire '$CAKEREP'\n" 1>&2
+        echo -e "L'installation se fera dans '$CAKEREP'.\n" 1>&2
     else
         mkdir $CAKEREP
-        echo -e "Le répertoire '$CAKEREP' a été créé \n" 1>&2
+        echo -e "Le répertoire '$CAKEREP' a été créé.\n" 1>&2
+        echo -e "L'installation se fera dans celui-ci.\n" 1>&2
     fi
     echo $CAKEREP
 }
 
 function repertoire-scan {
 
-    read -e -p "Entrez le répertoire a scanner : " REP
+    read -e -p "Entrez le répertoire à scanner : " REP
     if cd $REP 2> /dev/null ; then
-        echo -e "Répertoire scanner par cakebox-light : '$REP'\n" 1>&2
+        echo -e "Répertoire scanné par Cakebox-light : '$REP'.\n" 1>&2
     else
         mkdir $REP
-        echo -e "Répertoire de scan : '$REP' créé.\n" 1>&2
+        echo -e "Le répertoire '$REP' a été créé.\n" 1>&2
     fi
 
     chmod -R 0770 $REP
@@ -173,7 +172,7 @@ echo "\     \____/ __ \|    <\  ___/| \_\ (  <_> >    < "
 echo " \______  (____  /__|_ \\___  >___  /\____/__/\_  \\"
 echo "        \/     \/     \/    \/    \/            \/"
 echo -e "\n"
-echo -e "Début de l'installation de cakebox-light....\n"
+echo -e "Début de l'installation de Cakebox-light....\n"
 
 case $1 in
     install-prerequis)

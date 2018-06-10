@@ -29,10 +29,6 @@ $app->delete("/api/files", __NAMESPACE__ . "\\delete");
  */
 function get_infos(Application $app, Request $request) {
 
-    if ($app["rights.canPlayMedia"] == false) {
-        $app->abort(403, "This user doesn't have the rights to retrieve file informations");
-    }
-
     $filepath = Utils\check_path($app['cakebox.root'], $request->get('path'));
 
     if (!isset($filepath)) {
@@ -41,12 +37,13 @@ function get_infos(Application $app, Request $request) {
 
     $file     = new SPLFileInfo("{$app['cakebox.root']}/{$filepath}");
 
-    $fileinfo             = [];
-    $fileinfo["name"]     = $file->getBasename(".".$file->getExtension());
-    $fileinfo["fullname"] = $file->getFilename();
-    $fileinfo["mimetype"] = mime_content_type($file->getPathName());
-    $fileinfo["access"]   = str_replace('%2F', '/', rawurlencode("{$app['cakebox.access']}/{$filepath}"));
-    $fileinfo["size"]     = $file->getSize();
+    $fileinfo              = [];
+    $fileinfo["name"]      = $file->getBasename(".".$file->getExtension());
+    $fileinfo["fullname"]  = $file->getFilename();
+    $fileinfo["mimetype"]  = mime_content_type($file->getPathName());
+    $fileinfo["access"]    = str_replace('%2F', '/', rawurlencode("{$app['cakebox.access']}/{$filepath}"));
+    $fileinfo["size"]      = $file->getSize();
+    $fileinfo["extension"] = $file->getExtension();
 
     $arrDirectory = getCurrentDirectoryFiles($file, $app);
 

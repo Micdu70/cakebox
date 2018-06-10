@@ -1,4 +1,4 @@
-Cakebox-light ([Micdu70](https://github.com/Micdu70)'s fork version) ⚠️ DEPRECATED ⚠️
+Cakebox-light ([Micdu70's fork version](https://github.com/Micdu70/cakebox)) ⚠️ DEPRECATED ⚠️
 ===========
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Cakebox/cakebox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) [![GPL V2](http://img.shields.io/badge/license-GPL_V2-blue.svg?style=flat)](http://opensource.org/licenses/GPL-2.0)
@@ -15,7 +15,7 @@ A small web interface written with [AngularJS](https://angularjs.org/) and [Sile
 
 ## Features
 
-* Browse files thought a specified directory
+* Browse files throught a specified directory
 * Play videos directly in streaming
 * Easily share a link to download the file
 * Archive a directory or a file (disabled by default)
@@ -35,6 +35,15 @@ A small web interface written with [AngularJS](https://angularjs.org/) and [Sile
 
 You can find installation informations (in french) on the [wiki](https://github.com/Cakebox/Cakebox-light/wiki)
 
+## Update from a previous version (french script)
+
+- As root only
+
+```
+cd /tmp
+wget https://raw.github.com/Micdu70/cakebox/master/cakebox.sh
+chmod +x cakebox.sh && ./cakebox.sh update
+```
 
 ## License
 
@@ -58,4 +67,4 @@ We take security very seriously at and this code is 100% open source and peer re
 * [ahyear](https://github.com/ahyear)
 * Candle
 
-## Version 1.9.0 (Unofficial) by [Micdu70](https://github.com/Micdu70)
+## Version 1.9.0 & 1.9.1 (Unofficial) by [Micdu70](https://github.com/Micdu70)

@@ -106,18 +106,23 @@ function install-cakebox {
 function update {
     echo "Mise à jour de Cakebox-light ..."
     read -p "Appuyer sur une touche pour continuer ..."
-    read -e -p "Où ce trouve votre repertoire Cakebox ? (ex /home/cakebox) " REP2
+    read -e -p "Où ce trouve votre repertoire Cakebox ? (ex /var/www/cakebox) " REP2
 
     if cd $REP2 2> /dev/null ; then
 
+        git remote set-url origin https://github.com/Micdu70/cakebox.git
         git fetch --tags
         git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
         composer self-update
         composer update
         bower update --allow-root
+        echo ""
         echo "Mise à jour terminée."
+        echo ""
     else
-        echo "Erreur : verifiez le chemin vers votre répertoire cakebox"
+        echo ""
+        echo "Erreur : Vérifiez le chemin vers votre répertoire cakebox."
+        echo ""
     fi
 
 }
@@ -148,14 +153,14 @@ function repertoire-scan {
 
     chmod -R 0770 $REP
     echo $REP
-}  
+}
 
 # --------------------------- [ VERIFICATION DE L'UTILISATEUR ROOT ] ---------------------------
 
 user=$(whoami)
 if [ root != $user ] ; then
-    echo "Privilege insuffissant vous devez etre root"
-    echo "Lancer la commande sudo ./cakebox.sh"
+    echo "Privilèges insuffisants, vous devez être en root"
+    echo "Lancez la commande : sudo ./cakebox.sh"
     exit 1
 fi
 

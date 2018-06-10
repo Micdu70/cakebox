@@ -21,7 +21,7 @@ app.controller('AppCtrl', function($scope, $http, $location, $translate, Rights,
 
     $scope.$on('$locationChangeSuccess',function(event, url) {
         backurl = url.substring(0, url.lastIndexOf("/")).replace("/play/", "/browse/");
-        $scope.previouspage = backurl;
+        $scope.backtobrowse = backurl;
     });
 
     $scope.copyText = function(data) {

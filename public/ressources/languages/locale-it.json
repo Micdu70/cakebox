@@ -29,14 +29,15 @@
     "PLAY_PAGE": {
         "BACK": "Indietro",
         "PREV": "File precedente",
-        "NEXT": "File prossimo", 
+        "NEXT": "File prossimo",
         "DOWNLOAD": "Scarica il file",
         "BETASERIE": {
             "VIEW": "Segna l'episodio come visto su BetaSeries",
             "NO_VIEW": "Segna l'episodio come non visto su BetaSeries",
             "SCORE": "Voto {{ (episode.note.mean || movie.notes.mean) | number:1 }} su 5 ({{ episode.note.total || movie.notes.total }} partecipanti)",
             "RELEASED_ON": "Rilasciato il "
-        }
+        },
+        "WEBPLAYER_DISABLED": "Player disabilitato"
     },
     "NOTIFICATIONS": {
         "ARCHIVE": {

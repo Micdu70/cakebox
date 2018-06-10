@@ -25,7 +25,6 @@ function get(Application $app) {
 
     $rights                        = [];
     $rights["canPlayMedia"]        = $app["rights.canPlayMedia"];
-    $rights["canDownloadFile"]     = $app["rights.canDownloadFile"];
     $rights["canArchiveDirectory"] = $app["rights.canArchiveDirectory"];
     $rights["canDelete"]           = $app["rights.canDelete"];
 

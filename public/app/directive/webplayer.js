@@ -7,10 +7,14 @@ app.directive('webplayer', ["$location",
                 player: '@',
                 url: '@',
                 mimetype: '@',
-                autoplay: '@'
+                autoplay: '@',
+                extension: '@'
             },
             link: function (scope, element, attrs) {
                 var $_current = element;
+
+                var video = ["mp4", "mov", "mpg", "flv", "avi", "mkv", "wmv"];
+                var audio = ["m4a", "mp3", "flac", "ogg", "aac", "wma"];
 
                 var action = function(data) {
                     if (data.url) {
@@ -21,14 +25,14 @@ app.directive('webplayer', ["$location",
 
                         if (scope.player == "html5") {
                             if (scope.autoplay == "yes") {
-                                if (scope.mimetype.indexOf("video") !== -1)
+                                if (video.indexOf(scope.extension) !== -1)
                                     content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video>';
-                                else
+                                if (audio.indexOf(scope.extension) !== -1)
                                     content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio>';
                             } else {
-                                if (scope.mimetype.indexOf("video") !== -1)
+                                if (video.indexOf(scope.extension) !== -1)
                                     content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video>';
-                                else
+                                if (audio.indexOf(scope.extension) !== -1)
                                     content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio>';
                             }
                         }

@@ -116,14 +116,14 @@ app.controller('BrowseCtrl', function($window, $location, $scope, $routeParams, 
     }
 
     $scope.getUrl = function(entry) {
-        url = ""
+        url = "";
 
         if (entry.type == "dir") {
             url = "#/browse" + ($scope.currentPath ? "/" + $scope.currentPath : "") + "/" + entry.name;
         }
-        else if (entry.type == "file" && $scope.rights.canPlayMedia) {
+        else if (entry.type == "file") {
             url = entry.access.replace('//', '/');
-            if ((entry.extraType == "video")||(entry.extraType == "audio"))
+            if ((entry.extraType == "video" || entry.extraType == "audio") && $scope.rights.canPlayMedia)
                 url = "#/play" + ($scope.currentPath ? "/" + $scope.currentPath : "") + "/" + entry.name;
         }
 
@@ -137,7 +137,7 @@ app.controller('BrowseCtrl', function($window, $location, $scope, $routeParams, 
     }
 
     $scope.getRSS = function(entry) {
-        url = "/" + encodeURIComponent($scope.currentPath);
+        url = encodeURIComponent($scope.currentPath);
         url = url.replace('%2F', '/');
 
         return url;

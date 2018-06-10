@@ -36,7 +36,8 @@
             "NO_VIEW": "Mark the episode as not seen on BetaSeries",
             "SCORE": "Recorded {{ (episode.note.mean || movie.notes.mean) | number:1 }} of 5 ({{ episode.note.total || movie.notes.total }} participant)",
             "RELEASED_ON": "Released on "
-        }
+        },
+        "WEBPLAYER_DISABLED": "Player disabled"
     },
     "NOTIFICATIONS": {
         "ARCHIVE": {

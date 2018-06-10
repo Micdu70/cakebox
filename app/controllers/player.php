@@ -24,7 +24,13 @@ $app->get("/api/player",  __NAMESPACE__ . "\\get_infos");
 function get_infos(Application $app) {
 
     if ($app["rights.canPlayMedia"] == false) {
-        $app->abort(403, "This user doesn't have the rights to retrieve player informations");
+
+        $settings                    = [];
+        $settings["default_type"]    = "";
+        $settings["available_types"] = "";
+        $settings["auto_play"]       = "";
+
+        return $app->json($settings);
     }
 
     $settings                    = [];

@@ -65,7 +65,7 @@ function rss(Application $app, Request $request) {
     $dirpath = Utils\check_path($app['cakebox.root'], $request->get('path',''));
 
     if (!isset($dirpath)) {
-        $app->abort(403, "Forbiden");
+        $app->abort(403, "Forbidden");
     }
 
     $xml = new SimpleXMLElement('<rss/>');
@@ -82,18 +82,29 @@ function rss(Application $app, Request $request) {
 
     $proto = $request->isSecure() ? 'https://' : 'http://';
 
+    if ($app['cakebox.host'] == '')
+            $app['cakebox.host'] = file_get_contents("http://ipecho.net/plain");
+
     if ($app['cakebox.custom_port'] != '')
             $app['cakebox.host'] = $app['cakebox.host'].':'.$app['cakebox.custom_port'];
 
-    $channel->addChild('title', 'Cakebox RSS | /'.substr(htmlentities($dirpath, ENT_XML1), 1).'');
-    $channel->addChild('link', $proto . $app['cakebox.host']);
-    $channel->addChild('description', 'Cakebox RSS | /'.substr(htmlentities($dirpath, ENT_XML1), 1).'');
+    if ($dirpath != '' && $dirpath != '/') {
+            $channel->addChild('title', 'Cakebox RSS | '.htmlentities($dirpath, ENT_XML1).'');
+            $channel->addChild('link', $proto . $app['cakebox.host']);
+            $channel->addChild('description', 'Cakebox RSS | '.htmlentities($dirpath, ENT_XML1).'');
+            $dirpath = $dirpath . '/';
+    } else {
+            $channel->addChild('title', 'Cakebox RSS');
+            $channel->addChild('link', $proto . $app['cakebox.host']);
+            $channel->addChild('description', 'Cakebox RSS');
+            $dirpath = '';
+    }
 
     /**
      * @var SplFileInfo $file
      */
     foreach ($finder as $file) {
-        if (in_array(strtolower($file->getExtension()), $app["extension.video-audio"])) {
+        if (is_file($file)) {
             $item = $channel->addChild('item');
 
             $date = new \DateTime();
@@ -101,10 +112,10 @@ function rss(Application $app, Request $request) {
 
             $item->addChild('title', htmlentities($file->getBasename(), ENT_XML1));
 
-            $url   = $app['cakebox.host'] . $app['cakebox.access'] . $dirpath;
-            $url  .= DIRECTORY_SEPARATOR . $file->getRelativePath();
-            $url  .= DIRECTORY_SEPARATOR . $file->getBasename();
+            $url   = $app['cakebox.host'] . $app['cakebox.access'] . '/';
+            $url  .= $dirpath . $file->getRelativePath() . '/' . $file->getBasename();
             $url   = str_replace('//', '/', $url);
+
             $link  = $proto . $url;
             $link  = htmlentities($link, ENT_XML1);
 

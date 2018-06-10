@@ -93,7 +93,7 @@
     <script src="app/filter/bytes.js"></script>
     <script src="app/directive/webplayer.js"></script>
 
-    <!-- "Go to bottom" button -->
+    <!-- "Go to bottom/top" buttons -->
     <script>
         jQuery(document).ready(function() {
         var offset = 30;
@@ -101,41 +101,26 @@
         jQuery(window).scroll(function() {
         if (jQuery(this).scrollTop() <= offset) {
         jQuery('.go-to-bottom').fadeIn(duration);
+        jQuery('.back-to-top').fadeOut(duration);
         } else {
         jQuery('.go-to-bottom').fadeOut(duration);
+        jQuery('.back-to-top').fadeIn(duration);
         }
-        });
 
         jQuery('.go-to-bottom').click(function(event) {
         event.preventDefault();
         jQuery('html, body').animate({scrollTop: $(document).height()}, duration);
         return false;
-        })
-        });
-
-        $(document).ready(function(){
-        $(window).scroll();
-        });
-    </script>
-
-    <!-- "Back to top" button -->
-    <script>
-        jQuery(document).ready(function() {
-        var offset = 30;
-        var duration = 0;
-        jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > offset) {
-        jQuery('.back-to-top').fadeIn(duration);
-        } else {
-        jQuery('.back-to-top').fadeOut(duration);
-        }
         });
 
         jQuery('.back-to-top').click(function(event) {
         event.preventDefault();
         jQuery('html, body').animate({scrollTop: 0}, duration);
         return false;
-        })
+        });
+        });
+
+        $(window).scroll();
         });
     </script>
 </body>

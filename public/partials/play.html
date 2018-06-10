@@ -1,8 +1,8 @@
 <div class="view">
     <div id="header-player">
         <div class="row">
-            <a ng-href="{{ previouspage }}" translate>PLAY_PAGE.BACK</a>
-            <select class="form-control pull-right" ng-model="player.default_type" ng-options="player.name for (key, player) in player.available_types"></select><button type="button" class="btn btn-default pull-right" title="{{ 'BROWSE_PAGE.COPY' | translate }}" clip-copy="copyText(fileinfo)" ng-click="copyfileinfo()"><i class="glyphicon glyphicon-link"></i></button>
+            <a ng-href="{{ backtobrowse }}" translate>PLAY_PAGE.BACK</a>
+            <select class="form-control pull-right" ng-model="player.default_type" ng-options="player.name for (key, player) in player.available_types"><option ng-selected="true" value="">{{ 'PLAY_PAGE.WEBPLAYER_DISABLED' | translate }}</option></select><button type="button" class="btn btn-default pull-right" title="{{ 'BROWSE_PAGE.COPY' | translate }}" clip-copy="copyText(fileinfo)" ng-click="copyfileinfo()"><i class="glyphicon glyphicon-link"></i></button>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="player">
 
         <div class="player-container">
-            <webplayer class="stream-container" autoplay="{{ player.auto_play }}" player="{{ player.default_type.type }}" url="{{ fileinfo.access }}" mimetype="{{ fileinfo.mimetype }}"></webplayer>
+            <webplayer class="stream-container" autoplay="{{ player.auto_play }}" player="{{ player.default_type.type }}" url="{{ fileinfo.access }}" mimetype="{{ fileinfo.mimetype }}" extension="{{ fileinfo.extension }}"></webplayer>
         </div>
 
         <div class="betaseries" ng-show="betaseries.episode || betaseries.movie">
@@ -37,7 +37,7 @@
                 <span class="glyphicon glyphicon-triangle-left"></span><span translate>PLAY_PAGE.PREV</span>
             </a>
             </div>
-            <div class="col-sm-4" id="download" ng-show="rights.canDownloadFile">
+            <div class="col-sm-4" id="download">
                 <a ng-href="{{ fileinfo.access }}" translate><span class="glyphicon glyphicon-download"></span> PLAY_PAGE.DOWNLOAD </a> <small>({{ fileinfo.size | bytes }})</small>
             </div>
             <div class="col-sm-4" id="second">

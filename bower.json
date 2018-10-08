@@ -1,12 +1,12 @@
 {
   "name": "cakebox-light",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "dependencies": {
     "bootstrap": "3.3.7",
-    "angular": "~1.7.1",
-    "angular-i18n": "~1.7.1",
-    "angular-resource": "~1.7.1",
-    "angular-route": "~1.7.1",
+    "angular": "~1.7.5",
+    "angular-i18n": "~1.7.5",
+    "angular-resource": "~1.7.5",
+    "angular-route": "~1.7.5",
     "angular-bootstrap": "~2.5.0",
     "angular-translate": "~2.18.1",
     "angular-translate-loader-static-files": "~2.18.1",

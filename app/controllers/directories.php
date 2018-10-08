@@ -49,7 +49,7 @@ function get_content(Application $app, Request $request) {
     foreach ($finder as $file) {
 
         if ($file->isLink()) {
-            $linkTo = readlink("{$app['cakebox.root']}/{$dirpath}/{$file->getBasename()}");
+            $linkTo = readlink("{$app['cakebox.root']}/{$dirpath}/{$file->getFilename()}");
             if (file_exists($linkTo) == false)
                 continue;
 
@@ -57,11 +57,11 @@ function get_content(Application $app, Request $request) {
         }
 
         $pathInfo              = [];
-        $pathInfo["name"]      = $file->getBasename();
+        $pathInfo["name"]      = $file->getFilename();
         $pathInfo["type"]      = $file->getType();
         $pathInfo["mtime"]     = $file->getMTime();
         $pathInfo["size"]      = Utils\get_size($file);
-        $pathInfo["access"]    = str_replace('%2F', '/', rawurlencode("{$app['cakebox.access']}/{$dirpath}/{$file->getBasename()}"));
+        $pathInfo["access"]    = str_replace('%2F', '/', rawurlencode("{$app['cakebox.access']}/{$dirpath}/{$file->getFilename()}"));
         $pathInfo["extraType"] = "";
 
         $ext = strtolower($file->getExtension());

@@ -110,10 +110,10 @@ function rss(Application $app, Request $request) {
             $date = new \DateTime();
             $date->setTimestamp($file->getMTime());
 
-            $item->addChild('title', htmlentities($file->getBasename(), ENT_XML1));
+            $item->addChild('title', htmlentities($file->getFilename(), ENT_XML1));
 
             $url   = $app['cakebox.host'] . $app['cakebox.access'] . '/';
-            $url  .= $dirpath . $file->getRelativePath() . '/' . $file->getBasename();
+            $url  .= $dirpath . $file->getRelativePath() . '/' . $file->getFilename();
             $url   = str_replace('//', '/', $url);
 
             $link  = $proto . $url;

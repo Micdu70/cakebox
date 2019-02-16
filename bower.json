@@ -1,8 +1,8 @@
 {
   "name": "cakebox-light",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "dependencies": {
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "angular": "~1.7.5",
     "angular-i18n": "~1.7.5",
     "angular-resource": "~1.7.5",

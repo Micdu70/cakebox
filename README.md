@@ -67,4 +67,4 @@ We take security very seriously at and this code is 100% open source and peer re
 * [ahyear](https://github.com/ahyear)
 * Candle
 
-## Version 1.9.0 & 1.9.1 (Unofficial) by [Micdu70](https://github.com/Micdu70)
+## Version 1.9+ by [Micdu70](https://github.com/Micdu70)

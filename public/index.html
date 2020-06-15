@@ -38,7 +38,6 @@
                 <div class="collapse navbar-collapse" id="navbar-cakebox">
                     <ul class="nav navbar-nav">
                         <li ng-class="{'active':!currentPage || currentPage == 'browse'}"><a href="#/browse/" translate> NAVBAR.LOOK_INTO </a></li>
-                        <li><a href="../seedbox-manager" target="_blank"> Seedbox Manager </a></li>
                         <li ng-class="{'active':currentPage == 'about'}"><a href="#/about" translate> NAVBAR.ABOUT </a></li>
                     </ul>
                     <form ng-show="currentPage == 'browse' || currentPage == ''" class="navbar-form navbar-right searchbox" role="search">
@@ -74,7 +73,6 @@
     <script src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="components/alertifyjs/dist/js/alertify.js"></script>
     <script src="components/clipboard/dist/clipboard.min.js"></script>
-    <script src="components/ng-clip/src/ngClip.js"></script>
     <script src="components/angular-translate/angular-translate.min.js"></script>
     <script src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 

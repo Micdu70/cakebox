@@ -149,8 +149,6 @@ function repertoire-scan {
         mkdir $REP
         echo -e "Le répertoire '$REP' a été créé.\n" 1>&2
     fi
-
-    chmod -R 0770 $REP
     echo $REP
 }
 

@@ -28,7 +28,7 @@ A small web interface written with [AngularJS](https://angularjs.org/) and [Sile
 
 * A webserver (Apache 2, NGinX...)
 * [Composer](https://getcomposer.org/)
-* [Bower](http://bower.io/)
+* [Yarn](https://yarnpkg.com/)
 
 
 ## Getting Started

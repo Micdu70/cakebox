@@ -28,12 +28,12 @@ app.directive('webplayer', ["$location",
                                 if (video.indexOf(scope.extension) !== -1)
                                     content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></video>';
                                 if (audio.indexOf(scope.extension) !== -1)
-                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio>';
+                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls autoplay></audio><script type="text/javascript">var elementaudio = document.getElementById(\'html5\');elementaudio.volume = 0.2;</script>';
                             } else {
                                 if (video.indexOf(scope.extension) !== -1)
                                     content = '<video id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></video>';
                                 if (audio.indexOf(scope.extension) !== -1)
-                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio>';
+                                    content = '<audio id="html5" src="' + scope.url + '" type="' + scope.mimetype + '" controls></audio><script type="text/javascript">var elementaudio = document.getElementById(\'html5\');elementaudio.volume = 0.2;</script>';
                             }
                         }
 

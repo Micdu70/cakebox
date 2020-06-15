@@ -1,8 +1,9 @@
+new ClipboardJS('.copybtn');
+
 var app = angular.module('cakebox',  [
     'ngResource',
     'ngRoute',
     'ui.bootstrap',
-    'ngClipboard',
     'pascalprecht.translate'
 ]);
 
@@ -10,9 +11,9 @@ app.config(['$locationProvider', function($locationProvider) {
   $locationProvider.hashPrefix('');
 }]);
 
-app.config(['$routeProvider', '$translateProvider', 'ngClipProvider',
+app.config(['$routeProvider', '$translateProvider',
 
-    function($routeProvider, $translateProvider, ngClipProvider) {
+    function($routeProvider, $translateProvider) {
         $routeProvider.
         when('/', {
             templateUrl: 'partials/browse.html',
@@ -43,6 +44,5 @@ app.config(['$routeProvider', '$translateProvider', 'ngClipProvider',
         });
         $translateProvider.preferredLanguage('fr');
         $translateProvider.useSanitizeValueStrategy(null);
-        ngClipProvider.setPath("components/clipboard/dist/clipboard.min.js");
     }
 ]);

@@ -35,7 +35,7 @@
                     {{ entry.size | bytes }}
                 </td>
                 <td class="entry-copy">
-                    <i ng-show="entry.type == 'file'" title="{{ 'BROWSE_PAGE.COPY' | translate }}" class="glyphicon glyphicon-link" clip-copy="copyText(entry)" ng-click="copyfileinfo()"></i>
+                    <i ng-show="entry.type == 'file'" title="{{ 'BROWSE_PAGE.COPY' | translate }}" class="copybtn glyphicon glyphicon-link" data-clipboard-text="{{ copyText(entry) }}" ng-click="copyfileinfo()"></i>
                 </td>
                 <td class="entry-download">
                     <a ng-show="entry.type == 'dir' && rights.canArchiveDirectory" href="" ng-click="archiveDirectory(entry)" title="{{ 'BROWSE_PAGE.ARCHIVE' | translate }}" class="glyphicon glyphicon-compressed"></a>

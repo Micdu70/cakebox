@@ -16,9 +16,9 @@ use App\Models\Utils;
  *
  * @var Application $app Silex Application
  */
+
 $app->get("/api/app",  __NAMESPACE__ . "\\get");
 $app->get("/api/rss",  __NAMESPACE__ . "\\rss");
-
 
 /**
  * Get informations about cakebox
@@ -27,10 +27,13 @@ $app->get("/api/rss",  __NAMESPACE__ . "\\rss");
  *
  * @return JsonResponse Object containing application informations
  */
+
 function get(Application $app) {
 
-    $local  = json_decode(file_get_contents("{__DIR___}/../../bower.json"));
-    $remote = json_decode(file_get_contents("https://raw.github.com/Micdu70/cakebox/master/bower.json"));
+    $local  = json_decode(file_get_contents("{__DIR___}/../../version.json"));
+    $remote = json_decode(@file_get_contents("https://raw.github.com/Micdu70/cakebox/master/version.json"));
+    if(!$remote)
+        $remote = $local;
 
     $app_infos = array(
         'language' => $app["cakebox.language"],
@@ -49,6 +52,7 @@ function get(Application $app) {
  *
  * @return Response
  */
+
 function rss(Application $app, Request $request) {
 
     function human_filesize($bytes, $decimals = 2) {

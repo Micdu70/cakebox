@@ -2,7 +2,7 @@
     <div id="header-player">
         <div class="row">
             <a ng-href="{{ backtobrowse }}" translate>PLAY_PAGE.BACK</a>
-            <select class="form-control pull-right" ng-model="player.default_type" ng-options="player.name for (key, player) in player.available_types"><option ng-selected="true" value="">{{ 'PLAY_PAGE.WEBPLAYER_DISABLED' | translate }}</option></select><button type="button" class="btn btn-default pull-right" title="{{ 'BROWSE_PAGE.COPY' | translate }}" clip-copy="copyText(fileinfo)" ng-click="copyfileinfo()"><i class="glyphicon glyphicon-link"></i></button>
+            <select class="form-control pull-right" ng-model="player.default_type" ng-options="player.name for (key, player) in player.available_types"><option ng-selected="true" value="">{{ 'PLAY_PAGE.WEBPLAYER_DISABLED' | translate }}</option></select><button type="button" class="copybtn btn btn-default pull-right" title="{{ 'BROWSE_PAGE.COPY' | translate }}" data-clipboard-text="{{ copyText(fileinfo) }}" ng-click="copyfileinfo()"><i class="glyphicon glyphicon-link"></i></button>
         </div>
     </div>
 

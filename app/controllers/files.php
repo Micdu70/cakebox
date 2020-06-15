@@ -18,7 +18,6 @@ use App\Models\Utils;
 $app->get("/api/files",    __NAMESPACE__ . "\\get_infos");
 $app->delete("/api/files", __NAMESPACE__ . "\\delete");
 
-
 /**
  * Get file informations (size, name ...)
  *
@@ -27,6 +26,7 @@ $app->delete("/api/files", __NAMESPACE__ . "\\delete");
  *
  * @return JsonResponse Object containing file informations
  */
+
 function get_infos(Application $app, Request $request) {
 
     $filepath = Utils\check_path($app['cakebox.root'], $request->get('path'));
